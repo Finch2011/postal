@@ -1,138 +1,122 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>دعوت‌نامه تولد | فرهان عزیزی </title>
+    <title>دعوتنامه تولد فامیلی</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Floating Decorations -->
-    <div class="decor decor-1">✦</div>
-    <div class="decor decor-2">✧</div>
-    <div class="decor decor-3">♡</div>
-    <div class="decor decor-4">✦</div>
-
-    <!-- Confetti -->
+    <!-- Background decorations -->
+    <div class="stars"></div>
     <div class="confetti-container"></div>
 
-    <main class="page">
+    <main class="scene">
 
-        <section class="invitation-card">
+        <!-- Invitation Card -->
+        <section class="invitation">
 
-            <div class="card-glow"></div>
+            <div class="wave wave-1"></div>
+            <div class="wave wave-2"></div>
 
-            <div class="top-decoration">
-                <span></span>
-                <div>✦</div>
-                <span></span>
-            </div>
+            <div class="sparkle s1">✦</div>
+            <div class="sparkle s2">✧</div>
+            <div class="sparkle s3">✦</div>
+            <div class="sparkle s4">✧</div>
 
-            <p class="small-title">YOU ARE INVITED</p>
+            <div class="content">
 
-            <h1>
-                جشن تولد
-                <span>فرهان عزیزی</span>
-            </h1>
+                <p class="eyebrow">
+                      صمیمانه از شما دعوت میکنیم به
+                </p>
 
-            <p class="description">
-                با افتخار از شما دعوت می‌کنیم
-                تا در جشن تولد زیبای ما
-                در کنارمان باشید.
-            </p>
+                <h1>
+                    جشن تولد 1 سالگی
+                </h1>
 
-            <!-- Cake -->
-            <div class="cake-wrapper">
-                <div class="candle">
-                    <div class="flame"></div>
+                <div class="name-box">
+                    <span>فرهان عزیزی</span>
                 </div>
 
-                <div class="cake">
-                    <div class="cake-top"></div>
-                    <div class="cream"></div>
-                    <div class="cake-body"></div>
+                <p class="intro">
+                    آمدنت , تولد دوباره ای بود برای ما ❤️
+                </p>
+
+                <!-- Event information -->
+                <div class="event-info">
+
+                    <div class="event-item">
+                        <div class="event-icon">♥</div>
+
+                        <div>
+                            <small>روز</small>
+                            <strong>پنجشنبه</strong>
+                        </div>
+                    </div>
+
+                    <div class="date">
+                        <span>23</span>
+                        <small>مهر</small>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-icon">◷</div>
+
+                        <div>
+                            <small>ساعت</small>
+                            <strong>18 تا پاسی از شب</strong>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
 
-            <!-- Information -->
-            <div class="details">
+                <div class="location">
+                    <span class="location-icon">⌖</span>
 
-                <div class="detail">
-                    <div class="icon">♡</div>
                     <div>
-                        <span>تاریخ</span>
-                        <strong>پنجشنبه ، 23 مهر</strong>
+                        <small>محل برگزاری</small>
+                        <strong> شهرک بهشتی صدمتر بالاتر از تصفیه خانه کافه باغ روشن </strong>
                     </div>
                 </div>
 
-                <div class="detail">
-                    <div class="icon">◷</div>
-                    <div>
-                        <span>ساعت</span>
-                        <strong>۱۹:۰۰</strong>
-                    </div>
+                <p class="waiting">
+                    مشتاقانه منتظرتان هستیم!
+                </p>
+
+                <!-- Cake -->
+                <div class="cake-area">
+
+                    <div class="cake-glow"></div>
+
+                    <img
+                        src="./img/—Pngtree—golden birthday party cake with_19952926.png"
+                        alt="کیک تولد"
+                        class="birthday-cake"
+                    >
+
                 </div>
 
-                <div class="detail">
-                    <div class="icon">⌖</div>
-                    <div>
-                        <span>مکان</span>
-                        <strong>باغ خانوادگی</strong>
-                    </div>
-                </div>
+                <p class="signature">
+                    با عشق، خانواده عزیزی
+                </p>
 
             </div>
-
-            <div class="divider">
-                <span></span>
-                <b>✦</b>
-                <span></span>
-            </div>
-
-            <p class="footer-text">
-                حضورتان، زیبایی این شب را کامل‌تر می‌کند.
-            </p>
-
-        
-
-            <p class="signature">
-                با عشق، میثم عزیزی
-            </p>
 
         </section>
 
     </main>
 
+
     <!-- RSVP Modal -->
-    <div class="modal" id="rsvpModal">
 
-        <div class="modal-content">
+    
 
-            <button class="close" id="closeModal">×</button>
-
-            <div class="modal-icon">♡</div>
-
-            <h2>ممنون از شما!</h2>
-
-            <p>
-                حضور شما در این جشن برای ما بسیار ارزشمند است.
-            </p>
-
-            <button class="confirm-btn" id="confirmBtn">
-                با افتخار می‌آیم ✨
-            </button>
-
-        </div>
-
-    </div>
 
     <script src="app.js"></script>
 
 </body>
 </html>
-

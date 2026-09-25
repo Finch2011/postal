@@ -1,62 +1,51 @@
-
 const confettiContainer =
     document.querySelector(".confetti-container");
 
 const rsvpButton =
     document.getElementById("rsvpButton");
 
-const rsvpModal =
-    document.getElementById("rsvpModal");
+const modal =
+    document.getElementById("modal");
 
 const closeModal =
     document.getElementById("closeModal");
 
-const confirmBtn =
-    document.getElementById("confirmBtn");
+const confirm =
+    document.getElementById("confirm");
 
 
-// ------------------------------------
-// Confetti
-// ------------------------------------
+/* =========================================
+   CONFETTI
+========================================= */
 
-const confettiSymbols = [
-    "✦",
-    "✧",
-    "•",
-    "♥",
-    "◆"
-];
-
-function createConfetti(amount = 35) {
+function createConfetti(amount = 30) {
 
     for (let i = 0; i < amount; i++) {
 
-        const piece = document.createElement("div");
+        const piece =
+            document.createElement("div");
 
-        piece.classList.add("confetti");
-
-        piece.textContent =
-            confettiSymbols[
-                Math.floor(
-                    Math.random() *
-                    confettiSymbols.length
-                )
-            ];
+        piece.className = "confetti";
 
         piece.style.left =
             Math.random() * 100 + "vw";
 
-        piece.style.fontSize =
-            (8 + Math.random() * 10) + "px";
+        piece.style.background =
+            Math.random() > .5
+                ? "#FFCCB8"
+                : "#d9947d";
+
+        piece.style.width =
+            (4 + Math.random() * 6) + "px";
+
+        piece.style.height =
+            (6 + Math.random() * 9) + "px";
 
         piece.style.animationDuration =
             (4 + Math.random() * 5) + "s";
 
         piece.style.animationDelay =
-            Math.random() * 3 + "s";
-
-        piece.style.opacity =
-            .4 + Math.random() * .6;
+            Math.random() * 2 + "s";
 
         confettiContainer.appendChild(piece);
 
@@ -67,86 +56,88 @@ function createConfetti(amount = 35) {
 }
 
 
-// شروع اولیه
-createConfetti(45);
+/* Initial */
+
+setTimeout(() => {
+
+    createConfetti(35);
+
+}, 700);
 
 
-// ایجاد آرام کنفتی در طول زمان
+/* Small continuous confetti */
+
 setInterval(() => {
-    createConfetti(8);
-}, 2500);
+
+    createConfetti(5);
+
+}, 3000);
 
 
-// ------------------------------------
-// RSVP Modal
-// ------------------------------------
+/* =========================================
+   RSVP
+========================================= */
 
 rsvpButton.addEventListener("click", () => {
 
-    rsvpModal.classList.add("active");
+    modal.classList.add("active");
 
-    createConfetti(50);
+    createConfetti(45);
 
 });
 
 
 closeModal.addEventListener("click", () => {
 
-    rsvpModal.classList.remove("active");
+    modal.classList.remove("active");
 
 });
 
 
-confirmBtn.addEventListener("click", () => {
+confirm.addEventListener("click", () => {
 
-    confirmBtn.textContent = "ثبت شد ✓";
+    confirm.textContent =
+        "حضور شما ثبت شد ✓";
 
-    confirmBtn.style.background =
-        "#d9947d";
-
-    createConfetti(80);
+    createConfetti(70);
 
     setTimeout(() => {
 
-        rsvpModal.classList.remove("active");
+        modal.classList.remove("active");
 
-        confirmBtn.textContent =
-            "با افتخار می‌آیم ✨";
+        confirm.textContent =
+            "با افتخار می‌آیم";
 
-        confirmBtn.style.background =
-            "";
-
-    }, 1300);
+    }, 1400);
 
 });
 
 
-// ------------------------------------
-// Close modal by clicking outside
-// ------------------------------------
+/* =========================================
+   CLICK OUTSIDE
+========================================= */
 
-rsvpModal.addEventListener("click", (event) => {
+modal.addEventListener("click", (event) => {
 
-    if (event.target === rsvpModal) {
+    if (event.target === modal) {
 
-        rsvpModal.classList.remove("active");
+        modal.classList.remove("active");
 
     }
 
 });
 
 
-// ------------------------------------
-// Keyboard
-// ------------------------------------
+/* =========================================
+   ESC
+========================================= */
 
 document.addEventListener("keydown", (event) => {
 
     if (event.key === "Escape") {
 
-        rsvpModal.classList.remove("active");
+        modal.classList.remove("active");
 
     }
 
 });
-
