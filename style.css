@@ -1,0 +1,826 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --main: #FFCCB8;
+    --main-light: #ffe7dc;
+    --main-dark: #d9947d;
+
+    --cream: #fffaf7;
+    --text: #4b3933;
+    --muted: #927a70;
+
+    --shadow: rgba(93, 54, 40, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Vazirmatn", sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%, #ffe8df 0%, transparent 35%),
+        radial-gradient(circle at 80% 80%, #ffdcd0 0%, transparent 35%),
+        #fff8f4;
+
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+/* ---------------- Page ---------------- */
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 60px 20px;
+
+    position: relative;
+}
+
+/* ---------------- Card ---------------- */
+
+.invitation-card {
+    position: relative;
+
+    width: min(470px, 100%);
+
+    padding: 55px 38px 40px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.94),
+            rgba(255,246,241,.97)
+        );
+
+    border: 1px solid rgba(255,255,255,.8);
+
+    border-radius: 35px;
+
+    box-shadow:
+        0 35px 80px rgba(113, 67, 51, .16),
+        inset 0 1px 0 rgba(255,255,255,.9);
+
+    text-align: center;
+
+    overflow: hidden;
+
+    animation: cardEnter 1.2s cubic-bezier(.16,1,.3,1);
+}
+
+@keyframes cardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* glowing background */
+
+.card-glow {
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    top: -130px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: var(--main);
+
+    filter: blur(80px);
+
+    opacity: .3;
+
+    pointer-events: none;
+}
+
+/* ---------------- Top ---------------- */
+
+.top-decoration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+
+    color: var(--main-dark);
+
+    margin-bottom: 22px;
+}
+
+.top-decoration span {
+    width: 55px;
+    height: 1px;
+
+    background: linear-gradient(
+        to left,
+        transparent,
+        var(--main)
+    );
+}
+
+.top-decoration span:last-child {
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--main)
+    );
+}
+
+.top-decoration div {
+    font-size: 18px;
+
+    animation: sparkle 2s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+    0%,100% {
+        transform: scale(1);
+        opacity: .6;
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: 1;
+    }
+}
+
+.small-title {
+    color: var(--main-dark);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 14px;
+
+    direction: ltr;
+}
+
+/* ---------------- Heading ---------------- */
+
+h1 {
+    font-size: clamp(32px, 8vw, 46px);
+
+    line-height: 1.35;
+
+    font-weight: 700;
+
+    margin-bottom: 18px;
+}
+
+h1 span {
+    display: block;
+
+    color: var(--main-dark);
+
+    position: relative;
+}
+
+h1 span::after {
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 3px;
+
+    border-radius: 10px;
+
+    background: var(--main);
+
+    bottom: -7px;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+/* ---------------- Description ---------------- */
+
+.description {
+    color: var(--muted);
+
+    font-size: 14px;
+    line-height: 2;
+
+    max-width: 310px;
+
+    margin: 25px auto 10px;
+}
+
+/* ---------------- Cake ---------------- */
+
+.cake-wrapper {
+    height: 170px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    position: relative;
+
+    margin: 8px 0 5px;
+}
+
+.cake {
+    width: 150px;
+
+    position: relative;
+
+    animation: cakeFloat 4s ease-in-out infinite;
+}
+
+@keyframes cakeFloat {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+.cake-top {
+    height: 42px;
+
+    background:
+        radial-gradient(circle at 30% 40%, white 0 5px, transparent 6px),
+        radial-gradient(circle at 65% 30%, white 0 4px, transparent 5px),
+        linear-gradient(
+            180deg,
+            #ffdcd0,
+            var(--main)
+        );
+
+    border-radius: 50% 50% 15px 15px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.cake-top::after {
+    content: "✦  ♥  ✦";
+
+    position: absolute;
+
+    width: 100%;
+
+    top: 12px;
+
+    left: 0;
+
+    color: white;
+
+    font-size: 13px;
+}
+
+.cream {
+    height: 16px;
+
+    background: #fffaf7;
+
+    border-radius: 0 0 50% 50%;
+
+    position: relative;
+
+    z-index: 3;
+
+    margin-top: -7px;
+}
+
+.cake-body {
+    height: 55px;
+
+    background: linear-gradient(
+        90deg,
+        #e9a38e,
+        #ffcaba,
+        #e9a38e
+    );
+
+    border-radius: 0 0 18px 18px;
+
+    box-shadow:
+        inset 0 -10px 0 rgba(255,255,255,.18);
+}
+
+/* candle */
+
+.candle {
+    position: absolute;
+
+    bottom: 105px;
+
+    width: 11px;
+    height: 42px;
+
+    border-radius: 6px;
+
+    background: repeating-linear-gradient(
+        -45deg,
+        #fff,
+        #fff 5px,
+        var(--main) 5px,
+        var(--main) 9px
+    );
+
+    z-index: 5;
+}
+
+.flame {
+    position: absolute;
+
+    width: 15px;
+    height: 22px;
+
+    top: -21px;
+    left: -2px;
+
+    background: #ffc56e;
+
+    border-radius: 50% 50% 50% 50%;
+
+    transform: rotate(45deg);
+
+    box-shadow:
+        0 0 18px #ffc56e,
+        0 0 35px rgba(255,197,110,.6);
+
+    animation: flame 1s ease-in-out infinite alternate;
+}
+
+@keyframes flame {
+    from {
+        transform: rotate(40deg) scale(.9);
+    }
+
+    to {
+        transform: rotate(50deg) scale(1.08);
+    }
+}
+
+/* ---------------- Details ---------------- */
+
+.details {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.detail {
+    padding: 14px 7px;
+
+    border-radius: 18px;
+
+    background: rgba(255,204,184,.17);
+
+    border: 1px solid rgba(255,204,184,.3);
+
+    transition: .3s ease;
+}
+
+.detail:hover {
+    transform: translateY(-5px);
+
+    background: rgba(255,204,184,.3);
+
+    box-shadow: 0 10px 25px var(--shadow);
+}
+
+.icon {
+    width: 34px;
+    height: 34px;
+
+    margin: 0 auto 7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--main);
+
+    color: white;
+
+    font-size: 15px;
+}
+
+.detail span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    margin-bottom: 3px;
+}
+
+.detail strong {
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+/* ---------------- Divider ---------------- */
+
+.divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 28px 0 17px;
+}
+
+.divider span {
+    flex: 1;
+
+    height: 1px;
+
+    background: linear-gradient(
+        to left,
+        transparent,
+        var(--main)
+    );
+}
+
+.divider span:last-child {
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--main)
+    );
+}
+
+.divider b {
+    color: var(--main-dark);
+
+    font-size: 12px;
+}
+
+/* ---------------- Footer ---------------- */
+
+.footer-text {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-bottom: 20px;
+}
+
+/* ---------------- Button ---------------- */
+
+.rsvp-btn {
+    width: 100%;
+
+    border: none;
+
+    padding: 15px 20px;
+
+    border-radius: 18px;
+
+    background: linear-gradient(
+        135deg,
+        var(--main),
+        #e9a18b
+    );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    box-shadow:
+        0 12px 25px rgba(217,148,125,.25);
+
+    transition: .3s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.rsvp-btn::before {
+    content: "";
+
+    position: absolute;
+
+    width: 60px;
+    height: 200%;
+
+    background: rgba(255,255,255,.3);
+
+    transform: rotate(25deg) translateX(-150px);
+
+    transition: .6s;
+}
+
+.rsvp-btn:hover::before {
+    transform: rotate(25deg) translateX(350px);
+}
+
+.rsvp-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 18px 35px rgba(217,148,125,.35);
+}
+
+.rsvp-btn b {
+    font-size: 20px;
+
+    transition: .3s;
+}
+
+.rsvp-btn:hover b {
+    transform: translateX(-4px);
+}
+
+.signature {
+    color: var(--main-dark);
+
+    font-size: 11px;
+
+    margin-top: 18px;
+}
+
+/* ---------------- Floating Decorations ---------------- */
+
+.decor {
+    position: fixed;
+
+    color: var(--main);
+
+    font-size: 25px;
+
+    opacity: .45;
+
+    pointer-events: none;
+
+    animation: floating 5s ease-in-out infinite;
+}
+
+.decor-1 {
+    top: 12%;
+    left: 10%;
+}
+
+.decor-2 {
+    top: 25%;
+    right: 12%;
+
+    animation-delay: 1s;
+}
+
+.decor-3 {
+    bottom: 18%;
+    left: 14%;
+
+    animation-delay: 2s;
+}
+
+.decor-4 {
+    bottom: 10%;
+    right: 10%;
+
+    animation-delay: 3s;
+}
+
+@keyframes floating {
+    0%,100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(15deg);
+    }
+}
+
+/* ---------------- Confetti ---------------- */
+
+.confetti {
+    position: fixed;
+
+    top: -20px;
+
+    width: 7px;
+    height: 12px;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+    }
+}
+
+/* ---------------- Modal ---------------- */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(61,40,32,.35);
+
+    backdrop-filter: blur(10px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .35s;
+
+    z-index: 100;
+}
+
+.modal.active {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+.modal-content {
+    width: min(380px, 100%);
+
+    background: #fffaf7;
+
+    border-radius: 30px;
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    box-shadow: 0 30px 70px rgba(0,0,0,.2);
+
+    transform: scale(.8) translateY(20px);
+
+    transition: .4s;
+}
+
+.modal.active .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+.close {
+    position: absolute;
+
+    margin-top: -25px;
+    margin-right: -5px;
+
+    border: none;
+
+    background: none;
+
+    font-size: 28px;
+
+    color: var(--muted);
+
+    cursor: pointer;
+}
+
+.modal-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background: var(--main);
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.modal-content h2 {
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 2;
+
+    margin-bottom: 20px;
+}
+
+.confirm-btn {
+    border: none;
+
+    background: var(--main);
+
+    color: white;
+
+    padding: 13px 25px;
+
+    border-radius: 14px;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+/* ---------------- Mobile ---------------- */
+
+@media (max-width: 500px) {
+
+    .page {
+        padding: 25px 14px;
+    }
+
+    .invitation-card {
+        padding: 45px 20px 30px;
+
+        border-radius: 28px;
+    }
+
+    .details {
+        gap: 6px;
+    }
+
+    .detail {
+        padding: 12px 4px;
+    }
+
+    .decor {
+        display: none;
+    }
+}
